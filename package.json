@@ -21,5 +21,12 @@
     "bugs": {
         "url": "https://github.com/manhhomienbienthuy/electron-countdown/issues"
     },
-    "homepage": "https://github.com/manhhomienbienthuy/electron-countdown#readme"
+    "homepage": "https://github.com/manhhomienbienthuy/electron-countdown#readme",
+    "devDependencies": {
+        "electron": "^13.1.6",
+        "eslint": "^7.30.0",
+        "eslint-plugin-prettier": "^3.4.0",
+        "install": "^0.13.0",
+        "prettier": "^2.3.2"
+    }
 }
