@@ -2,9 +2,10 @@
     "name": "electron-countdown",
     "version": "1.0.0",
     "description": "Simple count down app with Electron",
-    "main": "index.js",
+    "main": "main.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "build-css": "postcss static/src/app.css -o static/app.css",
+        "build-css-prod": "postcss --env production static/src/app.css -o static/app.css"
     },
     "repository": {
         "type": "git",
@@ -23,10 +24,14 @@
     },
     "homepage": "https://github.com/manhhomienbienthuy/electron-countdown#readme",
     "devDependencies": {
+        "autoprefixer": "^10.3.1",
         "electron": "^13.1.6",
         "eslint": "^7.30.0",
         "eslint-plugin-prettier": "^3.4.0",
         "install": "^0.13.0",
-        "prettier": "^2.3.2"
+        "postcss": "^8.3.5",
+        "postcss-cli": "^8.3.1",
+        "prettier": "^2.3.2",
+        "tailwindcss": "^2.2.4"
     }
 }
