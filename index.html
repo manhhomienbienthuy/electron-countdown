@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <meta charset="utf-8" />
+    <title>Simple app with Electron</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="static/app.css" />
+
+    <div
+        class="
+            flex flex-col
+            justify-center
+            items-center
+            gap-4
+            w-screen
+            h-screen
+        "
+    >
+        <div class="flex flex-row gap-4 justify-center items-center">
+            <label class="text-right font-lg w-32" for="folder">
+                Select input
+            </label>
+            <div class="flex flex-row items-center w-96">
+                <input
+                    type="text"
+                    class="
+                        outline-none
+                        flex-grow
+                        border
+                        border-gray-300
+                        rounded-l
+                        h-12
+                        p-4
+                    "
+                    name="folder"
+                    id="folder"
+                    disabled
+                />
+                <button
+                    class="
+                        outline-none
+                        bg-gray-200
+                        hover:bg-gray-400
+                        border-t
+                        border-r
+                        border-b
+                        border-gray-300
+                        h-12
+                        px-4
+                        -ml-1
+                        rounded-r
+                    "
+                >
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-6 w-6 inline-block"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M5 19a2 2 0 01-2-2V7a2 2 0 012-2h4l2 2h4a2 2 0 012 2v1M5 19h14a2 2 0 002-2v-5a2 2 0 00-2-2H9a2 2 0 00-2 2v5a2 2 0 01-2 2z"
+                        />
+                    </svg>
+                    Choose folder
+                </button>
+            </div>
+        </div>
+        <div class="flex flex-row gap-4 justify-center items-center">
+            <label class="text-right font-lg w-32" for="length">
+                Filename length
+            </label>
+            <input
+                type="number"
+                class="
+                    border border-gray-200
+                    focus:border-blue-500
+                    outline-none
+                    w-96
+                    rounded-l
+                    h-12
+                    rounded
+                    p-4
+                "
+                value="16"
+                name="length"
+                id="length"
+            />
+        </div>
+
+        <div class="ml-36 w-96 text-left">
+            <button
+                class="
+                    outline-none
+                    bg-blue-500
+                    hover:bg-blue-700
+                    px-8
+                    py-2
+                    text-white
+                    uppercase
+                "
+            >
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-6 w-6 inline-block"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"
+                    />
+                </svg>
+                Run
+            </button>
+        </div>
+
+        <script src="static/app.js"></script>
+    </div>
+</html>

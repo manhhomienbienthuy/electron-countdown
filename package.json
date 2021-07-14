@@ -1,7 +1,7 @@
 {
-    "name": "electron-countdown",
+    "name": "electron-rename",
     "version": "1.0.0",
-    "description": "Simple count down app with Electron",
+    "description": "Simple app with Electron: rename files in folder",
     "main": "main.js",
     "scripts": {
         "build-css": "postcss static/src/app.css -o static/app.css",
