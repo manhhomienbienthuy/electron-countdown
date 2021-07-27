@@ -1,4 +1,6 @@
 const { app, ipcMain, BrowserWindow, dialog } = require("electron");
+const fs = require("fs");
+const path = require("path");
 
 let mainWin;
 
@@ -8,8 +10,8 @@ let mainWin;
 const createWindow = () => {
     // Tạo Window mới với
     mainWin = new BrowserWindow({
-        width: 800,
-        height: 650,
+        width: 650,
+        height: 440,
         icon: "static/icon.jpeg",
         webPreferences: {
             nodeIntegration: true,
@@ -43,3 +45,44 @@ app.on("activate", () => {
 });
 
 // Xử lý các event được invoke từ renderer
+ipcMain.handle("select-folder", async () => {
+    const pathObj = await dialog.showOpenDialog(mainWin, {
+        properties: ["openDirectory"],
+    });
+    return pathObj;
+});
+
+ipcMain.handle("rename", (_, data) => {
+    const randomName = (length) => {
+        var result = "";
+        var characters =
+            "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        var charactersLength = characters.length;
+        for (var i = 0; i < length; i++) {
+            result += characters.charAt(
+                Math.floor(Math.random() * charactersLength)
+            );
+        }
+        return result;
+    };
+
+    fs.readdir(data.folder, (_, files) => {
+        files.forEach((file) => {
+            oldPath = path.resolve(data.folder, file);
+            ext = path.extname(file);
+            newPath = path.resolve(data.folder, randomName(data.length) + ext);
+            fs.rename(oldPath, newPath, (err) => {
+                if (err) {
+                    console.log(err);
+                } else {
+                    console.log("Successfully renamed the file " + file);
+                }
+            });
+        });
+    });
+
+    dialog.showMessageBoxSync(mainWin, {
+        message: "Successfully renamed the all files in " + data.folder,
+        type: "info",
+    });
+});
